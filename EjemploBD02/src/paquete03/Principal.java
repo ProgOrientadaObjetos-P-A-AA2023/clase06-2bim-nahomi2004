@@ -21,9 +21,10 @@ public class Principal {
         a.establecerValorMatricula(200.2);
         
         c.insertarAuto(a);
+        c.obtenerDataAuto();
         
-        for (int i = 0; i < c.obtenerDataAuto().size(); i++) {
-            System.out.printf("%s\n", c.obtenerDataAuto().get(i));
+        for (int i = 0; i < c.obtenerArrayList().size(); i++) {
+            System.out.printf("%s\n", c.obtenerArrayList().get(i));
         }
     }
 }

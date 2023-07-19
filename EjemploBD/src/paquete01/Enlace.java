@@ -21,7 +21,8 @@ public class Enlace {
      * @return 
     */
     private Connection conn;
-       
+    ArrayList<Ciudad> lista = new ArrayList<>();
+    
     public void establecerConexion() {  
 
         try {  
@@ -53,14 +54,14 @@ public class Enlace {
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
-             System.out.println("Exception: insertarCiudad");
-             System.out.println(e.getMessage());  
+            System.out.println("Exception: insertarCiudad");
+            System.out.println(e.getMessage());  
              
         }  
     }
     
-    public ArrayList<Ciudad> obtenerDataCiudad() {  
-        ArrayList<Ciudad> lista = new ArrayList<>();
+    public void obtenerDataCiudad() {  
+        // ArrayList<Ciudad> lista = new ArrayList<>();
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
@@ -79,6 +80,9 @@ public class Enlace {
              System.out.println(e.getMessage());  
              
         }  
+    }
+    
+    public ArrayList<Ciudad> obtenerArrayList() {
         return lista;
     }
      

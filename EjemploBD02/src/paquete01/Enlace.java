@@ -18,7 +18,8 @@ import paquete02.Auto;
  */
 public class Enlace {
     private Connection conn;
-       
+    ArrayList<Auto> lista = new ArrayList<>();
+    
     public void establecerConexion() {  
 
         try {  
@@ -46,7 +47,7 @@ public class Enlace {
             Statement statement = obtenerConexion().createStatement();
             String data = String.format("INSERT INTO autos (placa,"
                     + "valor_matricula) "
-                    + "values ('%s', %s)", 
+                    + "values ('%s', %.2f)", 
                     auto.obtenerPlaca(), 
                     auto.obtenerValorMatricula());
             System.out.println(data);
@@ -59,8 +60,7 @@ public class Enlace {
         }  
     }
     
-    public ArrayList<Auto> obtenerDataAuto() {  
-        ArrayList<Auto> lista = new ArrayList<>();
+    public void obtenerDataAuto() {          
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
@@ -80,9 +80,11 @@ public class Enlace {
              System.out.println(e.getMessage());  
              
         }  
-        return lista;
     }
      
+    public ArrayList<Auto> obtenerArrayList() {
+        return lista;
+    }
 }
     
 
